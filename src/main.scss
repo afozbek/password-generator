@@ -4,7 +4,78 @@
   box-sizing: border-box;
 }
 
-.container {
-  width: 1000px;
+
+#root {
+  min-height: 100vh;
+  background: #3B3B98;
+}
+
+.m-container {
+  width: 350px;
   margin: 0 auto;
+  padding-top: 200px;
+}
+
+.m-generator {
+  border-radius: 3px;
+  
+  background: #23235B;
+  box-shadow: 0px 2px 10px rgba(255, 255, 255, 0.2);
+
+  padding: 20px;
+
+  &__header {
+    text-align: center;
+    color: #fff;
+    margin-bottom: 20px;
+  }
+
+  &__password {
+    position: relative;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 13px 10px;
+    color: #fff;
+    margin-bottom: 15px;
+
+    &GenerateBtn {
+      position: absolute;
+      background: #3B3B98;
+      border: none;
+      width: 40px;
+      height: 40px;
+      top: 4px;
+      right: 4px;
+    }
+  }
+
+  &__btn {
+    background: #3B3B98;
+    border: none;
+    display: block;
+    width: 100%;
+    padding: 10px;
+    color: #fff;
+    font-size: 17px;
+  }
+}
+
+.clipboard-icon {
+  width: 20px;
+  height: 20px;
+  color: #fff;
+}
+
+.form-group {
+  display: flex;
+  justify-content: space-between;
+  color: #fff;
+  margin-bottom: 15px;
+
+  input[type=number]{
+    width: 40px;
+  }
+
+  &:last-of-type {
+    margin-bottom: 25px;
+  }
 }
