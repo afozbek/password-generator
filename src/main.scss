@@ -88,3 +88,9 @@
     user-select: none;
   }
 }
+
+.Toastify__toast-body,
+.Toastify__close-button--default {
+  color: #000;
+  opacity: 1;
+}
