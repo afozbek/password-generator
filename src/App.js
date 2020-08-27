@@ -1,7 +1,13 @@
 import React, { useState, useRef } from "react";
 
 import ClipboardIcon from "./components/icons/ClipboardIcon";
-import { useToast } from "@chakra-ui/core";
+
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+import { COPY_SUCCESS } from "./messages";
+
+toast.configure();
 
 function App() {
   const [password, setPassword] = useState("tC5%gO1.iS0!pQ3wD6/");
@@ -12,7 +18,6 @@ function App() {
   const [includeNumbers, setIncludeNumbers] = useState(false);
   const [includeSymbols, setIncludeSymbols] = useState(false);
 
-  const toast = useToast();
   const copyBtn = useRef();
 
   const handleGeneratePassword = (e) => {
@@ -35,10 +40,22 @@ function App() {
     }, 3000);
   };
 
-  const handleCopyPassword = (e) => {
-    console.log("Copying password");
+  const notify = (message) => {
+    toast(message, {
+      position: toast.POSITION.TOP_CENTER,
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  };
 
+  const handleCopyPassword = (e) => {
     copyToClipboard();
+
+    notify(COPY_SUCCESS);
   };
 
   return (
