@@ -2,12 +2,12 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: monospace, cursive, Arial, Helvetica, sans-serif;
 }
-
 
 #root {
   min-height: 100vh;
-  background: #3B3B98;
+  background: #3b3b98;
 }
 
 .m-container {
@@ -19,7 +19,7 @@
 .m-generator {
   border-radius: 3px;
 
-  background: #23235B;
+  background: #23235b;
   box-shadow: 0px 2px 10px rgba(255, 255, 255, 0.2);
 
   padding: 20px;
@@ -39,18 +39,20 @@
 
     &GenerateBtn {
       position: absolute;
-      background: #3B3B98;
+      background: #3b3b98;
+      color: #fff;
       border: none;
-      width: 40px;
+      // width: 40px;
+      padding: 10px;
       height: 40px;
-      top: 4px;
-      right: 4px;
+      top: 2px;
+      right: 2px;
       cursor: pointer;
     }
   }
 
   &__btn {
-    background: #3B3B98;
+    background: #3b3b98;
     border: none;
     display: block;
     width: 100%;
@@ -73,11 +75,16 @@
   color: #fff;
   margin-bottom: 15px;
 
-  input[type=number]{
+  input[type="number"] {
     width: 40px;
   }
 
   &:last-of-type {
     margin-bottom: 25px;
+  }
+
+  label {
+    cursor: pointer;
+    user-select: none;
   }
 }
