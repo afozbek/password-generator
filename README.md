@@ -2,8 +2,9 @@
 
 In this project, I am trying to make a password generator in which a user can create custom strong passwords and copy them in order to use them other websites or platforms.
 
-![](assets/copy-password-toast.png)
-
+<p align="center">
+  <img src="assets/pass-generator.gif">
+</p>
 
 ## Idea
 - Get All Symbol Characters ( @#$½§ etc.) - true-false
