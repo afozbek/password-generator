@@ -7,7 +7,13 @@ chrome.tabs.onActivated.addListener(tabChanged);
 function extensionClicked(tab) {
   console.log(tab);
   console.log("Extension Clicked");
-  chrome.tabs.sendMessage(tab.id, "BACKGROUND: I want to send a message");
+
+  chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+    var activeTab = tabs[0];
+    chrome.tabs.sendMessage(activeTab.id, {
+      message: "clicked_browser_action",
+    });
+  });
 }
 
 function tabChanged(tab) {
