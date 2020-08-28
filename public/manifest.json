@@ -2,7 +2,10 @@
   "name": "My Extension",
   "version": "1.0",
   "manifest_version": 2,
-  "browser_action": {},
+  "browser_action": {
+    "default_title": "Password Generator",
+    "default_popup": "index.html"
+  },
   "background": {
     "scripts": ["background.js"]
   },
