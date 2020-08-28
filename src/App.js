@@ -6,13 +6,18 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 import { COPY_SUCCESS } from "./messages";
-import { numbers, lowerCaseLettters, upperCaseLetters, specialCharacters } from "./characters"
+import {
+  numbers,
+  lowerCaseLettters,
+  upperCaseLetters,
+  specialCharacters,
+} from "./characters";
 
 toast.configure();
 
 function App() {
   const [password, setPassword] = useState("");
-  const [copyBtnText, setCopyBtnText] = useState("COPY");
+  // const [copyBtnText, setCopyBtnText] = useState("COPY");
   const [passwordLength, setPasswordLength] = useState(20);
   const [includeUppercase, setIncludeUppercase] = useState(true);
   const [includeLowercase, setIncludeLowercase] = useState(true);
@@ -22,7 +27,12 @@ function App() {
   const copyBtn = useRef();
 
   const handleGeneratePassword = (e) => {
-    if (!includeUppercase && !includeLowercase && !includeNumbers && !includeSymbols) {
+    if (
+      !includeUppercase &&
+      !includeLowercase &&
+      !includeNumbers &&
+      !includeSymbols
+    ) {
       debugger;
       notify("You must select at least one option", true);
 
@@ -47,28 +57,29 @@ function App() {
       characterList += specialCharacters;
     }
 
-    setPassword(createPassword (characterList))
+    setPassword(createPassword(characterList));
   };
 
   const createPassword = (characterList) => {
     let password = "";
     const characterListLength = characterList.length;
 
-    for(let i = 0; i < passwordLength; i++) {
+    for (let i = 0; i < passwordLength; i++) {
       const characterIndex = getRandomIndex(characterListLength);
       password += characterList.charAt(characterIndex);
     }
 
     return password;
-  }
+  };
 
   const getRandomIndex = (limit) => {
     return Math.round(Math.random() * limit);
-  }
+  };
 
   useEffect(() => {
     handleGeneratePassword();
-  }, [])
+    // eslint-disable-next-line
+  }, []);
 
   const copyToClipboard = () => {
     const newTextArea = document.createElement("textarea");
@@ -78,15 +89,13 @@ function App() {
     document.execCommand("copy");
     newTextArea.remove();
 
-    setCopyBtnText("COPIED");
     copyBtn.current.disabled = true;
     setTimeout(() => {
-      setCopyBtnText("COPY");
       copyBtn.current.disabled = false;
     }, 3000);
   };
 
-  const notify = (message, hasError=false) => {
+  const notify = (message, hasError = false) => {
     if (hasError) {
       toast.error(message, {
         position: toast.POSITION.TOP_CENTER,
@@ -97,7 +106,7 @@ function App() {
         draggable: true,
         progress: undefined,
       });
-    }else {
+    } else {
       toast(message, {
         position: toast.POSITION.TOP_CENTER,
         autoClose: 5000,
