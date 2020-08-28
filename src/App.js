@@ -22,7 +22,8 @@ function App() {
   const copyBtn = useRef();
 
   const handleGeneratePassword = (e) => {
-    if (!includeLowercase && !includeLowercase && !includeNumbers && !includeSymbols) {
+    if (!includeUppercase && !includeLowercase && !includeNumbers && !includeSymbols) {
+      debugger;
       notify("You must select at least one option", true);
 
       return;
