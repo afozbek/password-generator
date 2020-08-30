@@ -6,6 +6,13 @@ In this project, I am trying to make a password generator in which a user can cr
   <img src="assets/pass-generator.gif" width="600">
 </p>
 
+
+## Goal
+Like Dashlana pass generator, I should improve UX for easier usage and much better UI for visual
+<p align="center">
+  <img src="assets/goal.png" width="600">
+</p>
+
 ## Idea
 - Get All Symbol Characters ( @#$½§ etc.) - true-false
 - Get All Numbers ( 1265 etc. ) - true-false
