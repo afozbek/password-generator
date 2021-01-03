@@ -96,26 +96,20 @@ function App() {
   };
 
   const notify = (message, hasError = false) => {
+    const toastMessageOptions = {
+        position: toast.POSITION.TOP_CENTER,
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      };
+    
     if (hasError) {
-      toast.error(message, {
-        position: toast.POSITION.TOP_CENTER,
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
+      toast.error(message, toastMessageOptions);
     } else {
-      toast(message, {
-        position: toast.POSITION.TOP_CENTER,
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
+      toast(message, toastMessageOptions);
     }
   };
 
